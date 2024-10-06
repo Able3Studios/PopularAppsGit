@@ -7235,10 +7235,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099970469}
+  - component: {fileID: 2099970472}
   - component: {fileID: 2099970468}
   - component: {fileID: 2099970467}
   - component: {fileID: 2099970466}
-  - component: {fileID: 2099970472}
   - component: {fileID: 2099970471}
   m_Layer: 5
   m_Name: UI
