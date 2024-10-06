@@ -202,8 +202,12 @@ public class GoalManager : MonoBehaviour
         if (m_OnboardingGoals.Count > 0)
         {
             m_CurrentGoal = m_OnboardingGoals.Dequeue();
-            m_StepList[m_CurrentGoalIndex - 1].stepObject.SetActive(false);
-            m_StepList[m_CurrentGoalIndex].stepObject.SetActive(true);
+
+            if(m_StepList[m_CurrentGoalIndex].stepObject != null)
+            {
+                m_StepList[m_CurrentGoalIndex - 1].stepObject.SetActive(false);
+                m_StepList[m_CurrentGoalIndex].stepObject.SetActive(true);   
+            }
         }
         else
         {
@@ -311,16 +315,18 @@ public class GoalManager : MonoBehaviour
 
         for (int i = startingStep; i < m_StepList.Count; i++)
         {
-            if (i == startingStep)
+            if(m_StepList[i].stepObject != null)
             {
-                m_StepList[i].stepObject.SetActive(true);
-                PreprocessGoal();
-            }
-            else
-            {
-                m_StepList[i].stepObject.SetActive(false);
+                if(i == startingStep)
+                {
+                    m_StepList[i].stepObject.SetActive(true);
+                    PreprocessGoal();
+                }
+                else
+                {
+                    m_StepList[i].stepObject.SetActive(false);
+                }
             }
         }
-
     }
 }
